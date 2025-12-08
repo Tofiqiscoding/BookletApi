@@ -1,0 +1,16 @@
+### Məlumatları götür
+GET http://localhost:5000/api/university
+
+### Məlumat saxla
+POST http://localhost:5000/api/university
+Content-Type: application/json
+
+{
+  "aboutUniversity": "Test universitet haqqında məlumat",
+  "generalTerms": "Test ümumi müddəalar",
+  "studentOrientedSystem": "Test tələbəyönümlü sistem",
+  "courseOrganization": "Test kurs təşkilatı",
+  "individualCurriculum": "Test fərdi kurikulum",
+  "summerSemester": "Test yay semestri",
+  "classParticipation": "Test dərs iştirakı"
+}
