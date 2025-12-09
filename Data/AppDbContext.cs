@@ -13,6 +13,6 @@ namespace BookletApi.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Section> Sections { get; set; }
         public DbSet<SectionTranslation> SectionTranslations { get; set; }
-        public DbSet<UniversityInfo> UniversityInfos { get; set; }  // ← BUNU ƏLAVƏ EDİN
+        public DbSet<UniversityInfo> UniversityInfos { get; set; }  
     }
 }

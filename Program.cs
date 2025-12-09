@@ -13,14 +13,14 @@ var jwtKey = builder.Configuration["JWT:Key"] ?? Environment.GetEnvironmentVaria
 var jwtIssuer = builder.Configuration["JWT:Issuer"] ?? Environment.GetEnvironmentVariable("JWT__ISSUER") ?? "booklet_api";
 var jwtAudience = builder.Configuration["JWT:Audience"] ?? Environment.GetEnvironmentVariable("JWT__AUDIENCE") ?? "booklet_frontend";
 
-// PostgreSQL connection
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? 
                        Environment.GetEnvironmentVariable("CONNECTIONSTRING") ?? 
-                       "Host=localhost;Database=booklet;Username=postgres;Password=postgres";
+                       "Host=localhost;Database=booklet;Username=postgres;Password=tofiq077";
 
 builder.Services.AddDbContext<AppDbContext>(opt => opt.UseNpgsql(connectionString));
 
-// CORS
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -31,7 +31,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Authentication
+
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -57,7 +57,7 @@ builder.Services.AddControllers();
 
 var app = builder.Build();
 
-// Migrate database
+
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
